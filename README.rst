@@ -6,7 +6,7 @@ Tools for image conversion.
 
 Info
 ===========
-Collection of functions for convertion images with python opencv. For now one useful function is shrink_image and its derivative shrink_and_store_images_dir. It let as to shrink image(s), to specified size. Useful, when we have a couple of different shape images and want all of them to be e.g. 640x640.
+Collection of functions for convertion images with python opencv. For now one useful function is shrink_image and its derivative shrink_and_store_images_dir. It let us to shrink image(s), to specified size. Useful, when we have a couple of different shape images and want all of them to be e.g. 640x640.
 
 
 Install
