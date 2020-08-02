@@ -198,24 +198,6 @@ def roll_layers(img, deg, radius):
     dictio = convert_rotation(deg, radius)
     img_copy = img.copy()
     
-    # R layer
-    R_a = math.cos((deg/360)*2*math.pi)*radius
-    R_b = math.sin((deg/360)*2*math.pi)*radius
-    # G layer
-    G_a = math.cos(((deg+120)/360)*2*math.pi)*radius
-    G_b = math.sin(((deg+120)/360)*2*math.pi)*radius
-    # B layer
-    B_a = math.cos(((deg+240)/360)*2*math.pi)*radius
-    B_b = math.sin(((deg+240)/360)*2*math.pi)*radius
-    dictio = {"R_a":R_a,
-              "R_b":R_b,
-              "G_a":G_a,
-              "G_b":G_b,
-              "B_a":B_a,
-              "B_b":B_b}
-    dictio = dict(zip(dictio.keys(), [round(item) for item in list(dictio.values())]))
-    
-    
     b_channel, g_channel, r_channel = cv2.split(img_copy)                  # split to R-G-B
     b_channel = roll_image(b_channel, dictio['B_a'], dictio['B_b'])     # move each one
     g_channel = roll_image(g_channel, dictio['G_a'], dictio['G_b'])
