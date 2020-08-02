@@ -1,7 +1,6 @@
 vision_stuff
 ===========
-Tools for image conversion.
-(vision-tools was already taken, that's why its vision_stuff :))
+Tools for image conversion, which seems to be useful, at least for me.
 
 
 Info
@@ -34,18 +33,40 @@ Usage from python
     from vision_stuff import shrink_and_store_images_dir
     
     directory = 'different_shape_images'
-    shrink_and_store_images_dir(directory)
+    shrink_and_store_images_dir(directory, width=640, height=640, resize=True)
     # it convert images and store them into new directory named (directory + "_converted")
     
     
 Algorithm of "shrink_image" function conversion
 ===========
-.. image:: shrink_example.png
+![image](examples/shrink_example.png)
 
-Todo
+Example of "roll_layers" function
+===========
+![image](examples/roll_layers_example.jpg)
+
+Example of "gradient_image" function
+===========
+![image](examples/gradient.png)
+
+Example of "margin" function
+===========
+![image](examples/margin.png)
+
+Todo status
 ===========
 03.06.2020, todo:
 
     - add command line tools
     
     - add more useful function/classes
+    
+02.08.2020, info:
+
+    - shrink_image fixed (it was bug in previous version :))
+    
+    - roll_layers function added
+    
+    - gradient_image function added
+    
+    - margin function added
