@@ -37,21 +37,21 @@ Usage from python
     # it convert images and store them into new directory named (directory + "_converted")
     
     
-Algorithm of "shrink_image" function conversion
+Example of "shrink_image" function
 ===========
-![image](examples/shrink_example.png)
+.. image:: examples/shrink_example.png
 
 Example of "roll_layers" function
 ===========
-![image](examples/roll_layers_example.jpg)
+.. image:: examples/roll_layers_example.jpg
 
 Example of "gradient_image" function
 ===========
-![image](examples/gradient.png)
+.. image:: examples/gradient.png
 
 Example of "margin" function
 ===========
-![image](examples/margin.png)
+.. image:: examples/margin.png
 
 Todo status
 ===========
