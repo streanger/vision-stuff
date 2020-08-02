@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: vision-stuff
-Version: 0.1.0
+Version: 0.1.1
 Summary: tools for image conversion
 Home-page: https://github.com/streanger/vision_stuff
 Author: streanger
@@ -14,7 +14,7 @@ Description: vision_stuff
         
         Info
         ===========
-        Collection of functions for convertion images with python opencv. For now one useful function is shrink_image and its derivative shrink_and_store_images_dir. It let as to shrink image(s), to specified size. Useful, when we have a couple of different shape images and want all of them to be e.g. 640x640.
+        Collection of functions for convertion images with python opencv. For now one useful function is shrink_image and its derivative shrink_and_store_images_dir. It let us to shrink image(s), to specified size. Useful, when we have a couple of different shape images and want all of them to be e.g. 640x640.
         
         
         Install
@@ -46,7 +46,7 @@ Description: vision_stuff
             # it convert images and store them into new directory named (directory + "_converted")
             
             
-        Alghorithm of "shrink_image" function conversion
+        Algorithm of "shrink_image" function conversion
         ===========
         .. image:: shrink_example.png
         

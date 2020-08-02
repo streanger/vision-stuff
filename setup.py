@@ -12,7 +12,7 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name='vision_stuff',
-    version='0.1.0',
+    version='0.1.1',
     keywords="vision image machine tools",
     author="streanger",
     author_email="divisionexe@gmail.com",
