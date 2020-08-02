@@ -220,8 +220,8 @@ def gradient_image(height, width, start_color, stop_color, direction):
     parameters:
         height      - image height
         width       - image width
-        start_color - RGB (0-255) tuple (R, G, B)
-        stop_color  - RGB (0-255) tuple (R, G, B)
+        start_color - BGR (0-255) tuple (B, G, R)
+        stop_color  - BGR (0-255) tuple (B, G, R)
         direction   - up/down/right/left supported
         
     not used:
