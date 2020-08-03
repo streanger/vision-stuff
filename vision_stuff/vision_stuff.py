@@ -1,7 +1,7 @@
 '''
 vision stuff for generall purpose
-version: 0.1.1
-date: 02.08.2020
+version: 0.1.2
+date: 03.08.2020
 '''
 import sys
 import os
