@@ -73,13 +73,13 @@ Todo status
 
 12.09.2020, info:
 
-    -shrink_and_store_images_dir renamed to shrink_img_dir
+    - shrink_and_store_images_dir renamed to shrink_img_dir
     
-    -shrink_image renamed to shrink_img
+    - shrink_image renamed to shrink_img
     
-    -echo added and few changes add to shrink_img_dir
+    - echo added and few changes add to shrink_img_dir
     
-    -when reading img into memory, cv2.IMREAD_UNCHANGED is used; it prevents windows rotation
+    - when reading img into memory, cv2.IMREAD_UNCHANGED is used; it prevents windows rotation
     
-    -when specified '.' as directory, files from current dir are converted and stored into '_converted' dir
+    - when specified '.' as directory, files from current dir are converted and stored into '_converted' dir
     
