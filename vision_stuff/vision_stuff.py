@@ -5,6 +5,7 @@ date: 03.08.2020
 '''
 import sys
 import os
+import time
 import math
 import numpy as np
 import cv2
@@ -51,7 +52,7 @@ def save_img(path, img, new_dir='NEW_DIR'):
     return True
     
     
-def shrink_image(img, width=640, height=640, resize=True):
+def shrink_img(img, width=640, height=640, resize=True):
     '''perform image, to fit frame; width and height are shape of full image
     todo:
         -think of detecting main object and move on x(y) axis to cut it
@@ -89,21 +90,38 @@ def shrink_image(img, width=640, height=640, resize=True):
     return out
     
     
-def shrink_and_store_images_dir(directory, width=640, height=640, resize=True):
+def shrink_img_dir(directory, width=640, height=640, resize=True, echo=True):
     '''shrink all images from specified directory and store them into new directory named (directory + "_converted")'''
     try:
-        files = [(file, os.path.join(directory, file)) for file in os.listdir(directory)]
+        dir_path = directory
+        if directory in ('.', ''):
+            dir_path = ''
+        files = [(file, os.path.join(dir_path, file)) for file in os.listdir(directory) if file.endswith(('.jpg', '.jpeg', '.png', '.gif', '.bmp'))]
+        files = sorted(files)
     except FileNotFoundError:
         print('no such directory: {}'.format(directory))
         return False
         
+    if echo:
+        now = time.time()
+        total = len(files)
+        total_str_len = len(str(total))
+        
     converted_images = []
     for key, (file, file_path) in enumerate(files):
-        # print(key)
-        img = cv2.imread(file_path, 1)
-        converted = shrink_image(img, width, height, resize)
+        if echo:
+            print('{}/{}. {}'.format(str(key+1).zfill(total_str_len), total, file))
+        img = cv2.imread(file_path, cv2.IMREAD_UNCHANGED)
+        if img is None:
+            if echo:
+                print('    file is corrupted /\\/\\')
+            continue
+        converted = shrink_img(img, width, height, resize)
         converted_images.append(converted)
-        save_img(file, converted, new_dir='{}_converted'.format(directory))
+        save_img(file, converted, new_dir='{}_converted'.format(dir_path))
+        
+    if echo:
+        print('elapsed time: {:1.4f}[s]'.format(time.time() - now))
     return None
     
     
@@ -304,7 +322,7 @@ if __name__ == "__main__":
     script_path()
     
     # shrink_example()
-    # shrink_and_store_images_dir('example_dir', 2000, 1500)
+    shrink_img_dir('example_dir', 2000, 1500)
     
     
 '''
@@ -323,6 +341,14 @@ cli tools:
     -roll_layers added
     -gradient_image added
     -margin added
-    -
+    
+12.09.2020, things_done:
+    -shrink_and_store_images_dir renamed to shrink_img_dir
+    -echo added in shrink_img_dir
+    -shrink_image renamed to shrink_img
+    -if img is None, then just continue; when echo print info and then continue
+    -sort listed files, before iterating
+    -when reading img into memory, cv2.IMREAD_UNCHANGED is used; it prevents windows rotation
+    -when specified '.' as directory, files from current dir are converted and stored into '_converted' dir
     
 '''
